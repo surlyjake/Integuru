@@ -60,7 +60,7 @@ Let's assume we want to download utility bills:
    Log into your platform and perform the desired action (such as downloading a utility bill).
 6. Run Integuru:
    ```
-   poetry run integuru --prompt "download utility bills" --model <gpt-4o|o1-preview|o1-mini|o1>
+   poetry run integuru --prompt "download utility bills" --model <gpt-4o|o3-mini|o1|o1-mini>
    ```
    You can also run it via Jupyter Notebook `main.ipynb`
 
