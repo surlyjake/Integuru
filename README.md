@@ -62,6 +62,8 @@ Let's assume we want to download utility bills:
 
    **Recommended to use gpt-4o as the model for graph generation as it supports function calling. Integuru will automatically switch to o1-preview for code generation if available in the user's OpenAI account.** ⚠️ **Note: o1-preview does not support function calls.**
 
+   **Ollama support is now available! You can use the Ollama model by specifying `--model ollama` in the command.**
+
 ## Usage
 
 After setting up the project, you can use Integuru to analyze and reverse-engineer API requests for external platforms. Simply provide the appropriate .har file and a prompt describing the action that you want to trigger.
