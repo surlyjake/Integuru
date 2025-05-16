@@ -9,7 +9,7 @@ import click
 
 @click.command()
 @click.option(
-    "--model", default="gpt-4o", help="The LLM model to use (default is gpt-4o)"
+    "--model", default="gpt-4o", help="The LLM model to use (default is gpt-4o, supports ollama)"
 )
 @click.option("--prompt", required=True, help="The prompt for the model")
 @click.option(

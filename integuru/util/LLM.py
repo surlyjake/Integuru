@@ -1,17 +1,22 @@
 from langchain_openai import ChatOpenAI
+from ollama import Ollama
 
 class LLMSingleton:
     _instance = None
     _default_model = "gpt-4o"  
     _alternate_model = "o1-preview"
+    _ollama_model = "ollama"
 
     @classmethod
     def get_instance(cls, model: str = None):
         if model is None:
             model = cls._default_model
             
-        if cls._instance is None:
-            cls._instance = ChatOpenAI(model=model, temperature=1)
+        if cls._instance is None or cls._instance.model != model:
+            if model == cls._ollama_model:
+                cls._instance = Ollama(model=model)
+            else:
+                cls._instance = ChatOpenAI(model=model, temperature=1)
         return cls._instance
 
     @classmethod
@@ -34,5 +39,10 @@ class LLMSingleton:
 
         return cls._instance
 
-llm = LLMSingleton()
+    @classmethod
+    def get_ollama_instance(cls):
+        """Returns an Ollama instance"""
+        cls._instance = Ollama(model=cls._ollama_model)
+        return cls._instance
 
+llm = LLMSingleton()
